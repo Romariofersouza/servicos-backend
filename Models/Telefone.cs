@@ -7,8 +7,8 @@ namespace servicos_api.Models
     {
         public int Id { get; set; }
         public string Numero { get; set; } = null!;
-        public int IdProfissional { get; set; }
-        public int IdCliente { get; set; }
+        public int? IdProfissional { get; set; } = null;
+        public int? IdCliente { get; set; } = null;
 
         public virtual Cliente IdClienteNavigation { get; set; } = null!;
         public virtual Profissional IdProfissionalNavigation { get; set; } = null!;

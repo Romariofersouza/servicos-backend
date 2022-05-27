@@ -7,7 +7,7 @@ namespace servicos_api.Models
     {
         public int Id { get; set; }
         public string Descricao { get; set; } = null!;
-        public byte[] DataHora { get; set; } = null!;
+        public string DataHora { get; set; } = null!;
         public int IdCliente { get; set; }
         public int IdProfissional { get; set; }
 
