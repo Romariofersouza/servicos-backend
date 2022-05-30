@@ -15,6 +15,8 @@ namespace servicos_api.Models
         public string Cpf { get; set; } = null!;
         public string Nome { get; set; } = null!;
         public int IdEndereco { get; set; }
+        public string Senha { get; set; } //= null!;
+        public string Email { get; set; }
 
         public virtual Endereco IdEnderecoNavigation { get; set; } = null!;
         public virtual ICollection<Atendimento> Atendimentos { get; set; }
