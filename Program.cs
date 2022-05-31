@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
-builder.Services.AddDbContext<servicosContext>(opt => opt.UseSqlServer("Server=localhost\\MSSQLSERVER1;Database=servicos;TrustServerCertificate=True;User Id=sa;Password=P@ssw0rdsenac;"));
+builder.Services.AddDbContext<servicosContext>(opt => opt.UseSqlServer("Server=localhost;Database=servicos;TrustServerCertificate=True;User Id=sa;Password=P@ssw0rdsenac;"));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
