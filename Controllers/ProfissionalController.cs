@@ -41,6 +41,18 @@ namespace servicos_api.Controllers
 
             return profissional;
         }
+         [HttpGet("{email}/{password}")]
+        public async Task<ActionResult<Profissional>> GetProfissionalByEmailPassword(string email, string password)
+        {
+            var profissional = await _context.Profissionals.Where(profissional => profissional.Email == email && profissional.Senha == password).FirstOrDefaultAsync();
+
+            if (profissional == null)
+            {
+                return NotFound();
+            }
+
+            return profissional;
+        }
 
         // PUT: api/Profissional/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
