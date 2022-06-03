@@ -114,7 +114,7 @@ namespace servicos_api.Controllers
 
         private bool ProfissionalExists(int id)
         {
-            return _context.Profissionals.Any(e => e.Id == id);
+            return _context.Profissionals.Any(e => e.Id == id); 
         }
     }
 }
