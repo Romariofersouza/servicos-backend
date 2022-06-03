@@ -1,4 +1,4 @@
-#nullable disable
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,10 +29,10 @@ namespace servicos_api.Controllers
         }
 
         // GET: api/Cliente/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Cliente>> GetCliente(int id)
+        [HttpGet("{email}/{password}")]
+        public async Task<ActionResult<Cliente>> GetClienteByEmailPassword(string email, string password)
         {
-            var cliente = await _context.Clientes.FindAsync(id);
+            var cliente = await _context.Clientes.Where(cliente => cliente.Email == email && cliente.Senha == password).FirstOrDefaultAsync();
 
             if (cliente == null)
             {
