@@ -42,6 +42,19 @@ namespace servicos_api.Controllers
             return cliente;
         }
 
+        [HttpGet("{email}/{password}")]
+        public async Task<ActionResult<Cliente>> GetClienteByEmailPassword(string email, string password)
+        {
+            var cliente = await _context.Clientes.Where(client => client.Email == email && client.Senha == password).FirstOrDefaultAsync();
+
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            return cliente;
+        }
+
         // PUT: api/Cliente/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
