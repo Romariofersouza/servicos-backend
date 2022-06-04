@@ -1,4 +1,4 @@
-
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,10 +29,10 @@ namespace servicos_api.Controllers
         }
 
         // GET: api/Profissional/5
-        [HttpGet("{email}/{password}")]
-        public async Task<ActionResult<Profissional>> GetProfissionalByEmailPassword(string email, string password)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Profissional>> GetProfissional(int id)
         {
-            var profissional = await _context.Profissionals.Where(profissional => profissional.Email == email && profissional.Senha == password).FirstOrDefaultAsync();
+            var profissional = await _context.Profissionals.FindAsync(id);
 
             if (profissional == null)
             {
@@ -114,7 +114,7 @@ namespace servicos_api.Controllers
 
         private bool ProfissionalExists(int id)
         {
-            return _context.Profissionals.Any(e => e.Id == id); 
+            return _context.Profissionals.Any(e => e.Id == id);
         }
     }
 }
