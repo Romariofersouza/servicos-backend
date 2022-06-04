@@ -26,7 +26,7 @@ namespace servicos_api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-// #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                // #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=localhost;Database=servicos;TrustServerCertificate=True;User Id=sa;Password=P@ssw0rdsenac;");
             }
         }
@@ -80,6 +80,9 @@ namespace servicos_api.Models
                     .HasMaxLength(11)
                     .IsUnicode(false)
                     .HasColumnName("cpf");
+
+                entity.Property(e => e.Senha).HasColumnName("senha");
+                entity.Property(e => e.Email).HasColumnName("email");
 
                 entity.Property(e => e.IdEndereco).HasColumnName("id_endereco");
 
@@ -137,6 +140,9 @@ namespace servicos_api.Models
                 entity.HasIndex(e => e.Cpf, "UK_cpf")
                     .IsUnique();
 
+                entity.HasIndex(e => e.Email, "UK_email")
+                    .IsUnique();
+
                 entity.Property(e => e.Id)
                     .HasColumnName("id");
 
@@ -149,6 +155,9 @@ namespace servicos_api.Models
                     .HasMaxLength(11)
                     .IsUnicode(false)
                     .HasColumnName("cpf");
+
+                entity.Property(e => e.Senha).HasColumnName("senha");
+                entity.Property(e => e.Email).HasColumnName("email");
 
                 entity.Property(e => e.IdEndereco).HasColumnName("id_endereco");
 
