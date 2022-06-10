@@ -41,7 +41,8 @@ namespace servicos_api.Controllers
 
             return profissional;
         }
-         [HttpGet("{email}/{password}")]
+
+        [HttpGet("{email}/{password}")]
         public async Task<ActionResult<Profissional>> GetProfissionalByEmailPassword(string email, string password)
         {
             var profissional = await _context.Profissionals.Where(profissional => profissional.Email == email && profissional.Senha == password).FirstOrDefaultAsync();
@@ -93,7 +94,7 @@ namespace servicos_api.Controllers
             _context.Profissionals.Add(profissional);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProfissional1", new { id = profissional.Id }, profissional);
+            return CreatedAtAction("GetProfissional", new { id = profissional.Id }, profissional);
         }
 
         // DELETE: api/Profissional/5
